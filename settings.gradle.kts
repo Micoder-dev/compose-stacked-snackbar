@@ -2,7 +2,6 @@ rootProject.name = "compose-multiplatform-library-template"
 
 include(":sample:androidApp")
 include(":lib")
-include(":sample:desktopApp")
 include(":sample:shared")
 
 pluginManagement {
