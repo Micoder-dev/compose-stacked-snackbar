@@ -1,4 +1,3 @@
-import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.compose.ExperimentalComposeLibrary
 
 plugins {
@@ -83,17 +82,13 @@ android {
 }
 
 mavenPublishing {
-//    publishToMavenCentral(SonatypeHost.DEFAULT)
-    // or when publishing to https://s01.oss.sonatype.org
-    publishToMavenCentral(SonatypeHost.S01, automaticRelease = true)
-    signAllPublications()
-    coordinates("io.github.rizmaulana", "compose-stacked-snackbar", "1.0.4")
+    coordinates("com.github.Micoder-dev", "compose-stacked-snackbar", "1.0.4")
 
     pom {
         name.set(project.name)
         description.set("Compose stacked snackbar")
         inceptionYear.set("2024")
-        url.set("https://github.com/rizmaulana/compose-stacked-snackbar/")
+        url.set("https://github.com/Micoder-dev/compose-stacked-snackbar/")
         licenses {
             license {
                 name.set("The Apache License, Version 2.0")
@@ -103,15 +98,19 @@ mavenPublishing {
         }
         developers {
             developer {
-                id.set("rizmaulana")
-                name.set("Rizki Maulana")
-                url.set("https://github.com/rizmaulana/")
+                id.set("Micoder-dev")
+                name.set("Micoder-dev")
+                url.set("https://github.com/Micoder-dev/")
             }
         }
         scm {
-            url.set("https://github.com/rizmaulana/compose-stacked-snackbar/")
-            connection.set("scm:git:git://github.com/rizmaulana/compose-stacked-snackbar.git")
-            developerConnection.set("scm:git:ssh://git@github.com/rizmaulana/compose-stacked-snackbar.git")
+            url.set("https://github.com/Micoder-dev/compose-stacked-snackbar/")
+            connection.set("scm:git:git://github.com/Micoder-dev/compose-stacked-snackbar.git")
+            developerConnection.set("scm:git:ssh://git@github.com/Micoder-dev/compose-stacked-snackbar.git")
         }
     }
+}
+
+tasks.register("install") {
+    dependsOn("publishToMavenLocal")
 }
